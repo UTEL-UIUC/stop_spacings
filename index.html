@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Get features under the mouse pointer</title>
+    <title>Traversals - Portland</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
@@ -160,7 +160,7 @@
 
                 // Copy coordinates array.
                 const coordinates = e.features[0].geometry.coordinates.slice();
-                const trips = e.features[0].properties.Traversals;
+                const traversals = e.features[0].properties.Traversals;
                 const segment = e.features[0].properties.segment_id;
                 // Ensure that if the map is zoomed out such that multiple
                 // copies of the feature are visible, the popup appears
@@ -171,8 +171,8 @@
                 // Populate the popup and set its coordinates
                 // based on the feature found.
                 popup.setLngLat(coordinates[0]).setHTML(
-                    "<p>Segment ID:" + segment + "</p>" +
-                    "<p>" + trips + "</p>"
+                    "<p>Segment ID: " + segment + "</p>" +
+                    "<p>Traversals: " + traversals + "</p>"
                 ).addTo(map);
 
                 if (hoveredStateId !== null) {
