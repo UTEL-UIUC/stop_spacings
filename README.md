@@ -1,1 +1,1 @@
-# stop_spacings
+Repository for collaborating on Stop Spacings Packages
