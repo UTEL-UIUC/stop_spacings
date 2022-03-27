@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/saipraneethd/cl0tppk30000115l7t21cm3lc',
     center: [-122.676, 45.513],
-    zoom: 12
+    zoom: 14
 });
 
 function fetchJSON(url) {
@@ -57,9 +57,6 @@ fetchJSON('portland_gtfs.geojson') // portland_gtfs
             })
         });
     });
-console.log(stop_circles_list.length)
-stop_circles_list = [... new Set(stop_circles_list)]
-console.log(stop_circles_list.length)
 routes_inp = {
     "type": "FeatureCollection",
     "features": data_list
@@ -205,14 +202,14 @@ map.on('load', () => {
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
         // over the copy being pointed to.
-        midpoint = [e.features[0].properties.mp_lng,e.features[0].properties.mp_lat]
-        // console.log(turf.along(e.features[0],turf.length(e.features[0])/2))
-        while (Math.abs(e.lngLat.lng - midpoint) > 180) {
-            midpoint += e.lngLat.lng > midpoint ? 360 : -360;
-        }
+        // midpoint = [e.features[0].properties.mp_lng,e.features[0].properties.mp_lat]
+        // // console.log(turf.along(e.features[0],turf.length(e.features[0])/2))
+        // while (Math.abs(e.lngLat.lng - midpoint) > 180) {
+        //     midpoint += e.lngLat.lng > midpoint ? 360 : -360;
+        // }
         // Populate the popup and set its coordinates
         // based on the feature found.
-        popup.setLngLat(midpoint).setHTML(
+        popup.setLngLat(e.lngLat).setHTML(
             "<p>Segment ID: " + segment + "</p>" +
             "<p>Traversals: " + traversals + "</p>"
         ).addTo(map);
