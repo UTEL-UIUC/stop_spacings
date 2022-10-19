@@ -60,7 +60,7 @@ export function DisplaySelect(props) {
 
     useEffect(() => {
 
-        fetchJSON("http://localhost:3001/list")
+        fetchJSON("http://praneethd.web.illinois.edu//list")
             .then((data) => {
                 const option_list = data.list.map(function (item, index) {
                     return { label: item, id: index };
