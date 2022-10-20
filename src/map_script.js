@@ -114,7 +114,7 @@ export default function App() {
 
         console.log('fetching...')
 
-        fetchJSON("http://praneethd.web.illinois.edu//json?" + new URLSearchParams({ id: city_index }))
+        fetchJSON("https://praneethd.web.illinois.edu/json?" + new URLSearchParams({ id: city_index }))
             .then(function (data) {
                 var data_list = [];
                 var stop_circles_list = [];

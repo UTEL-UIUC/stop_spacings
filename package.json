@@ -36,5 +36,5 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
   },
-  "proxy": "http://praneethd.web.illinois.edu/"
+  "proxy": "https://praneethd.web.illinois.edu/"
 }
